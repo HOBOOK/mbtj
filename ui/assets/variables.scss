@@ -1,0 +1,81 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+
+$menu-content-elevation: 1;
+
+$list-item-dense-title-font-size: 1rem;
+$list-dense-min-height: 42px;
+
+$border-radius-root: 0.5rem;
+
+$tooltip-background-color: #000000f0;
+// $tooltip-text-color :#fff;
+$tooltip-opacity:1;
+$tooltip-transition-enter-duration: 0ms;
+$tooltip-transition-leave-duration: 0ms;
+$tooltip-transition-timing-function: none;
+$tooltip-font-size: 13px;
+$tooltip-padding: 4px 12px;
+$tooltip-border-radius: 0.4rem;
+
+$default-border-color: rgba(127, 147, 167, 0.16);
+$default-light-border-color: rgba(127, 147, 167, 0.5);
+$default-card-border-color: rgba(127, 147, 167, 0.2);
+$primary-border-color: #1E88E560;
+$dark-card-border-color: #546E7A30;
+
+
+$text-field-outlined-border-light: #e0e0e0;
+$text-field-outlined-border-dark: #3a3d52;
+$text-field-outlined-fieldset-border: #1E88E5;
+
+$btn-hover-opacity: 0.05;
+$btn-focus-opacity: 0.12;
+$btn-active-opacity: 0.09;
+
+$expansion-panel-active-mGargin: 0px;
+$expansion-panel-header-min-height: 36px;
+$expansion-panel-active-header-min-height: 48px;
+$expansion-panel-header-padding: 12px 12px;
+$expansion-panel-content-padding: 0 12px 18px;
+
+$card-elevation:0;
+
+$material-dark: #081325;
+$dark-primary-deep-background-color: #070e18; 
+$dark-primary-background-color: #081427; 
+$dark-primary-light-background-color: #1c2438; 
+$dark-primary-header-color: #1f2330; 
+
+$light-primary-background-color: #fff;
+$light-primary-deep-background-color: #fafbfd;
+$light-primary-dark-background-color: #f5f6f8; 
+$light-primary-header-color: #fff; 
+
+$treeview-node-height-dense: 36px;
+$treeview-node-margin: 4px;
+$treeview-node-padding: 6px;
+$treeview-node-level-width: 18px;
+
+$btn-sizes: (
+    "x-small": 24,
+    "small": 28,
+    "default": 36,
+    "large": 44,
+    "x-large": 56
+);
+
+$btn-font-sizes: (
+    'x-small': .625rem,
+    'small': .75rem,
+    'default': 1rem,
+    'large': 1rem,
+    'x-large': 1.25rem
+);
+
+$alert-font-size: 14px;
+$alert-icon-size: 20px;
+
+$data-table-dense-header-height: 36px;
