@@ -31,14 +31,19 @@ export default {
     }
   },
   methods: {
-    loginWith(provider) {
-      alert(`${provider} 로그인 시도`);
-      // 실제 로그인 로직 연동 부분
+    async loginWith(provider) {
+
+      switch (provider) {
+        case 'google': {
+          try {
+            this.$auth.loginWith('google')
+          } catch (e) {
+            console.error('Google Login Failed:', e)
+          }
+          break
+        }
+      }
     },
-    goTo(type) {
-      alert(`${type} 페이지로 이동`);
-      // 예: this.$router.push(...)
-    }
   }
 }
 </script>

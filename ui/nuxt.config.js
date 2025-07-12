@@ -64,6 +64,7 @@ export default {
     { src: '~/plugins/vue-grid', ssr: false },
     { src: '~/plugins/socket.js', mode: 'client' },
     { src: '~/plugins/vue-draggable.js', mode: 'client' },
+    { src: '~/plugins/google-auth.js', mode: 'client' }
   ],
 
   components: true,
@@ -201,56 +202,22 @@ export default {
   },
 
   auth: {
-    //localStorage: false,
-    watchLoggedIn: false,
-    // plugins:[
-    //   '~/middleware/auth.js'
-    // ],
-    redirect: {
-      login: '/auth/login',
-      logout: '/auth/login',
-      callback: false,
-      home: false
-    },
     strategies: {
-      local: {
-        scheme: 'refresh',
-        token: {
-          maxAge: 1800,
-          global: true,
-          required: false,
-          property: 'token',
-        },
-        refreshToken: {
-          maxAge: 60 * 60 * 24 * 7,
-          property: 'refreshToken',
-          data: 'refreshToken',
-          grantType: 'refreshToken'
-        },
-        autoFetch: false,
-        user: {
-          property: 'user',
-          autoFetch: false
-        },
-        endpoints: {
-          login: { url: 'auth/login', method: 'post', propertyName: 'token' },
-          user: false, //{ url: 'auth/login/user', method: 'get', propertyName: false },
-          refresh: { url: 'auth/refresh', method: 'post', propertyName: 'token' },
-          logout: false,
-        },
-        //tokenType:'',
-        tokenRequired: true,
-        cookie: {
-          prefix: "auth.",
-          options: {
-            path: "/",
-          }
-        },
-        localStorage: {
-          prefix: "auth."
-        },
+      google: {
+        clientId: '882327378871-mcf2sdkt29cm1sb68ipkgo9mt4l8iovd.apps.googleusercontent.com',
+        codeChallengeMethod: '',
+        responseType: 'token id_token',
+        redirectUri: 'http://localhost:3000/login',
+        scope: ['openid', 'profile', 'email']
       },
+      // 로컬 전략도 필요시 추가 가능
     },
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/login',
+      home: '/'
+    }
   },
 
   generate: {

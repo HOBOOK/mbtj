@@ -8,9 +8,11 @@ const config = require('./config/config');
 const cors = require('cors');
 const indexRoutes = require('./routes/indexRoutes');
 const stationRouter = require('./routes/stationRoutes');
+const authRoutes = require('./routes/authRoutes');
 const logger = require('./middlewares/logger');
 const socket = require('./socket.js')
 const isDev = process.env.NODE_ENV !== 'production'
+require("./config/mongoose");
 
 const server = http.createServer(app);
 app.io = socket
