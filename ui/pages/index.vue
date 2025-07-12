@@ -1,7 +1,21 @@
 <template>
   <v-container fluid>
     <v-col cols="12">
-      d
+      
+      <div class="" style="border:1px solid yellow; width:100%; height:240px;">
+        <v-list-item>
+          <v-list-item-content>
+
+          </v-list-item-content>
+        </v-list-item>
+        
+
+      </div>
+
+      <div class="">
+
+
+      </div>
 
     </v-col>
   </v-container>

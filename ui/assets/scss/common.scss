@@ -425,6 +425,7 @@ input:-webkit-autofill:active {
   text-transform: none !important;
   letter-spacing: normal !important;
 
+
   &.v-size--large {
     font-size: 16px !important;
   }
@@ -451,9 +452,10 @@ input:-webkit-autofill:active {
     font-size: 0.9rem;
   }
 }
-.v-btn__loader{
-  .v-progress-circular{
-    width:20px !important;
+
+.v-btn__loader {
+  .v-progress-circular {
+    width: 20px !important;
     height: 20px !important;
     font-size: 20px !important;
   }
@@ -1756,12 +1758,29 @@ div:hover {
 }
 
 @keyframes shake {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(-4px); }
-  40% { transform: translateX(4px); }
-  60% { transform: translateX(-4px); }
-  80% { transform: translateX(4px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-4px);
+  }
+
+  40% {
+    transform: translateX(4px);
+  }
+
+  60% {
+    transform: translateX(-4px);
+  }
+
+  80% {
+    transform: translateX(4px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .shaking {
@@ -1771,13 +1790,21 @@ div:hover {
 }
 
 @keyframes flash {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.2; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
 }
 
 .flashing {
   animation: flash 1s infinite;
-  color: #FFD700; /* 노란색 강조 */
+  color: #FFD700;
+  /* 노란색 강조 */
   font-weight: bold;
 }
 

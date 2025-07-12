@@ -1,27 +1,30 @@
 <template>
   <v-app class="default-layout-container">
+
     <v-app-bar fixed color="transparent" :clipped-left="true" clipped-right app>
-      <v-row no-gutters>
-        <v-col cols="4">
-          <v-row no-gutters align="center">
+      <v-container>
+        <v-row no-gutters>
+          <v-col cols="4">
+            <v-row no-gutters align="center">
 
-            <div class="d-flex align-center pointer  system-title" @click="$router.push('/')">
-              <img src="/logo-light.png" width="64" contain/>
-            </div>
+              <div class="d-flex align-center pointer  system-title" @click="$router.push('/')">
+                <img src="/logo-light.png" width="64" contain />
+              </div>
 
-          </v-row>
+            </v-row>
 
-        </v-col>
+          </v-col>
 
-        <v-col cols="4" align="center">
+          <v-col cols="4" align="center">
 
-        </v-col>
+          </v-col>
 
-        <v-col cols="4">
-          <v-row no-gutters align="center" justify="end">
-          </v-row>
-        </v-col>
-      </v-row>
+          <v-col cols="4">
+            <v-row no-gutters align="center" justify="end">
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-container>
 
     </v-app-bar>
 
@@ -39,14 +42,15 @@
     </v-navigation-drawer>
 
     <v-main>
-
-      <v-container fluid :style="`max-height: calc(100vh - ${60}px); overflow-y: auto; height: calc(100vh - ${60}px);`">
+      <v-container>
         <vue-snotify></vue-snotify>
-        <Nuxt />
+        <Nuxt :style="`max-height: calc(100vh - ${60}px); overflow-y: auto; height: calc(100vh - ${60}px);`" />
       </v-container>
 
 
     </v-main>
+    <GoogleAd />
+
   </v-app>
 </template>
 
@@ -55,13 +59,7 @@
 const packageJson = require("~/package.json");
 
 export default {
-  head() {
-    return {
-      titleTemplate(title) {
-        return `${title} | ${this.$route.meta.title || ""}`;
-      },
-    };
-  },
+
   components: {
   },
   data() {
@@ -90,7 +88,7 @@ export default {
   },
   // middleware: 'auth',
   methods: {
-  
+
 
     isMenuActive(menuPath) {
       const path = decodeURI(this.$route.path);

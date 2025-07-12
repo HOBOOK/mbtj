@@ -11,16 +11,21 @@ export default {
   srcDir: '',
   head: {
     script: [
+      {
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1654715490901132",
+        async: true,
+        crossorigin: "anonymous"
+      }
     ],
-    titleTemplate: ('MBTJ') + ' - %s',
-    title: 'MBTJ',
+    titleTemplate: ('HAHA') + ' - %s',
+    title: 'HAHA',
     htmlAttrs: {
       lang: 'ko'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no' },
-      { hid: 'og:title', property: 'og:title', content: 'MBTJ' },
+      { hid: 'og:title', property: 'og:title', content: 'HAHA' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
