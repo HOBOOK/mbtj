@@ -1,8 +1,8 @@
 {
-  "name": "mipo-task-viewer",
+  "name": "mbtj",
   "version": "1.0.0",
   "private": true,
-  "description": "mipo-task-viewer UI",
+  "description": "mbtj UI",
   "author": "VAZIL Company <programming@vazilcompany.com> (http://www.vazilcompany.com)",
   "scripts": {
     "dev": "nuxt",

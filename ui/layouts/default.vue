@@ -6,12 +6,8 @@
           <v-row no-gutters align="center">
 
             <div class="d-flex align-center pointer  system-title" @click="$router.push('/')">
-              <img src="/logo-vazil.png" :height="21" contain />
+              <img src="/logo-light.png" width="64" contain/>
             </div>
-
-            <v-btn @click="drawer = !drawer" icon style="position:absolute; left:200px;">
-              <v-icon>mdi-menu</v-icon>
-            </v-btn>
 
           </v-row>
 
@@ -19,12 +15,10 @@
 
         <v-col cols="4" align="center">
 
-          <h2 class="text-h5 font-weight-bold"> {{navMenuList.find((e) => e.router === $route.path)?.header}}</h2>
         </v-col>
 
         <v-col cols="4">
           <v-row no-gutters align="center" justify="end">
-            <h3>{{ new Date(currentTime).toLocaleString("ko-KR") }}</h3>
           </v-row>
         </v-col>
       </v-row>
@@ -57,7 +51,6 @@
 </template>
 
 <script>
-import SettingDialog from "~/components/dialog/SettingDialog.vue";
 
 const packageJson = require("~/package.json");
 
@@ -70,7 +63,6 @@ export default {
     };
   },
   components: {
-    SettingDialog,
   },
   data() {
     return {
@@ -98,19 +90,7 @@ export default {
   },
   // middleware: 'auth',
   methods: {
-    async logout() {
-      if (this.$auth.user) {
-        await this.$axios
-          .get("/auth/logout/" + this.$auth.user.email)
-          .then((res) => {
-          })
-          .catch((err) => {
-            console.error(err)
-          });
-      }
-
-      await this.$auth.logout();
-    },
+  
 
     isMenuActive(menuPath) {
       const path = decodeURI(this.$route.path);
@@ -121,46 +101,11 @@ export default {
       if (path.indexOf(menuPath) !== -1) return true;
       else return false;
     },
-
-    checkViewLarge() {
-      if (["md", "sm", "xs"].indexOf(this.$vuetify.breakpoint.name) !== -1) {
-        return false;
-      } else {
-        return true;
-      }
-    },
-
-
-    convertTimeFormat(time) {
-      return new Date(time).toLocaleTimeString("ko-KR", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      });
-    },
-
-    async init() {
-      if (this.secondInterval) {
-        clearInterval(this.secondInterval);
-      }
-      this.secondInterval = setInterval(() => {
-        this.currentTime = Date.now();
-      }, 1000);
-    }
   },
 
   created() {
     console.log(
       `%c
-     _    ______  ________  ____________
-    | |  / / __ \/  _/ __ \/ ____/ ____/
-    | | / / /_/ // // / / / / __/ __/   
-    | |/ / _, _// // /_/ / /_/ / /___   
-    |___/_/_|_/___/_____/\____/_____/    
-
      Version ${packageJson.version}
                                          
     `,
@@ -168,24 +113,16 @@ export default {
     );
   },
   mounted() {
-    this.init()
   },
 
   watch: {
     async $route(to, from) {
       window.scrollTo(0, 0);
     },
-    "$store.state.settingDialog"() {
-      this.$refs.settingDialog.activeDialog();
-    },
+
   },
 
   beforeDestroy() {
-    window.removeEventListener("beforeunload", this.logout);
-    if (this.secondInterval) {
-      clearInterval(this.secondInterval);
-    }
-
   },
 };
 </script>

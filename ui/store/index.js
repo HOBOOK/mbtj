@@ -7,7 +7,7 @@ export const strict = false
 
 const store = () => new Vuex.Store({
   state: {
-    theme: 'dark',
+    theme: '',
     locale: 'ko',
   },
   mutations: {

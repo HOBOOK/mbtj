@@ -8,10 +8,8 @@ const config = require('./config/config');
 const cors = require('cors');
 const indexRoutes = require('./routes/indexRoutes');
 const stationRouter = require('./routes/stationRoutes');
-const rugRouter = require('./routes/rugRoutes');
 const logger = require('./middlewares/logger');
 const socket = require('./socket.js')
-const db = require('./config/db.js')
 const isDev = process.env.NODE_ENV !== 'production'
 
 const server = http.createServer(app);

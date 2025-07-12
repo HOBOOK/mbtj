@@ -1,5 +1,5 @@
 services:
-  mipo-task-viewer:
+  mbtj-service:
     build:
       context: .
       dockerfile: Dockerfile
