@@ -7,7 +7,6 @@ const app = express();
 const config = require('./config/config');
 const cors = require('cors');
 const indexRoutes = require('./routes/indexRoutes');
-const stationRouter = require('./routes/stationRoutes');
 const authRoutes = require('./routes/authRoutes');
 const logger = require('./middlewares/logger');
 const socket = require('./socket.js')
@@ -22,7 +21,7 @@ app.use(express.json());
 app.use(logger); // 미들웨어 등록
 app.use(cors());
 app.use('/', indexRoutes);
-app.use('/stations', stationRouter);
+app.use('/auth', authRoutes);
 
 // Nuxt SSR 통합
 async function start() {

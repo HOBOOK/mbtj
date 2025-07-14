@@ -21,6 +21,11 @@
 
           <v-col cols="4">
             <v-row no-gutters align="center" justify="end">
+              <div v-if="isLoggedIn">
+                {{ $store.state.auth.user.name }}
+                 <v-btn text @click="logout">로그아웃</v-btn>
+              </div>
+              <v-btn v-else text to="/login">로그인</v-btn>
             </v-row>
           </v-col>
         </v-row>
@@ -62,6 +67,12 @@ export default {
 
   components: {
   },
+
+  computed: {
+    isLoggedIn() {
+      return this.$store.state.auth.user !== null
+    }
+  },
   data() {
     return {
       drawer: false,
@@ -86,19 +97,11 @@ export default {
       currentTime: Date.now(),
     };
   },
-  // middleware: 'auth',
   methods: {
-
-
-    isMenuActive(menuPath) {
-      const path = decodeURI(this.$route.path);
-      if (menuPath === "/") {
-        if (path === "/") return true;
-        else return false;
-      }
-      if (path.indexOf(menuPath) !== -1) return true;
-      else return false;
-    },
+    logout() {
+      this.$store.commit('auth/logout')
+      this.$router.push('/')
+    }
   },
 
   created() {
@@ -111,6 +114,22 @@ export default {
     );
   },
   mounted() {
+      const token = localStorage.getItem('accessToken')
+      if (token && !this.$store.state.auth.user) {
+        this.$axios
+          .$get('/auth/me', {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          })
+          .then(user => {
+            this.$store.commit('auth/setUser', user)
+            this.$store.commit('auth/setAccessToken', token)
+          })
+          .catch(() => {
+            this.$store.commit('auth/logout')
+          })
+      }
   },
 
   watch: {

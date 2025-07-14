@@ -64,7 +64,6 @@ export default {
     { src: '~/plugins/vue-grid', ssr: false },
     { src: '~/plugins/socket.js', mode: 'client' },
     { src: '~/plugins/vue-draggable.js', mode: 'client' },
-    { src: '~/plugins/google-auth.js', mode: 'client' }
   ],
 
   components: true,
@@ -76,7 +75,7 @@ export default {
   ],
 
   modules: [
-    '@nuxtjs/auth',
+    // '@nuxtjs/auth',
     '@nuxtjs/proxy',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -201,24 +200,7 @@ export default {
     // middleware: ['loading'],
   },
 
-  auth: {
-    strategies: {
-      google: {
-        clientId: '882327378871-mcf2sdkt29cm1sb68ipkgo9mt4l8iovd.apps.googleusercontent.com',
-        codeChallengeMethod: '',
-        responseType: 'token id_token',
-        redirectUri: 'http://localhost:3000/login',
-        scope: ['openid', 'profile', 'email']
-      },
-      // 로컬 전략도 필요시 추가 가능
-    },
-    redirect: {
-      login: '/login',
-      logout: '/',
-      callback: '/login',
-      home: '/'
-    }
-  },
+
 
   generate: {
     minify: {

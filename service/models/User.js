@@ -12,10 +12,6 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    password: {
-      type: String,
-      required: true,
-    },
     provider: { type: String},
     picture: {
       type: String,
@@ -23,7 +19,7 @@ const userSchema = new Schema(
     status: {
       type: String,
       enum: Object.values(USER_STATUS),
-      default: USER_STATUS.PENDING,
+      default: USER_STATUS.ACTIVE,
     },
     refreshToken: {
       type: String,

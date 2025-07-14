@@ -36,7 +36,14 @@ export default {
       switch (provider) {
         case 'google': {
           try {
-            this.$auth.loginWith('google')
+            const clientId = '882327378871-mcf2sdkt29cm1sb68ipkgo9mt4l8iovd.apps.googleusercontent.com'
+            const redirectUri = 'http://localhost:3000/auth/google'
+            const scope = 'openid profile email'
+            const responseType = 'token id_token'
+             const nonce = Math.random().toString(36).substring(2) 
+            const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}&nonce=${nonce}&prompt=select_account`
+
+            window.location.href = url
           } catch (e) {
             console.error('Google Login Failed:', e)
           }
