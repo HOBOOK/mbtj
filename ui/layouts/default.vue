@@ -10,10 +10,17 @@
           <v-spacer/>
 
           <client-only>
-            <div v-if="isLoggedIn">
-              {{ $store.state.auth.user.name }}
-                <v-btn text @click="logout">로그아웃</v-btn>
+            <div  v-if="isLoggedIn">
+              <v-row no-gutters align="center">
+                  <v-btn class="mx-2" text @click="logout">로그아웃</v-btn>
+
+                <v-avatar :size="26" class="mr-2">
+                  <img :src="$store.state.auth.user.picture" width="32" contain/>
+                </v-avatar>
+                {{ $store.state.auth.user.name }}
+              </v-row>
             </div>
+
             <v-btn v-else text to="/login">로그인</v-btn>
           </client-only>
 
