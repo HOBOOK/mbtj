@@ -1,33 +1,22 @@
 <template>
   <v-app class="default-layout-container">
 
-    <v-app-bar fixed color="transparent" :clipped-left="true" clipped-right app>
+    <v-app-bar fixed color="transparent" :clipped-left="true" clipped-right app :height="60">
       <v-container>
-        <v-row no-gutters>
-          <v-col cols="4">
-            <v-row no-gutters align="center">
+        <v-row no-gutters align="center">
+          <div class="pointer" @click="$router.push('/')">
+            <img src="/logo-light.png" width="64" contain />
+          </div>
+          <v-spacer/>
 
-              <div class="d-flex align-center pointer  system-title" @click="$router.push('/')">
-                <img src="/logo-light.png" width="64" contain />
-              </div>
+          <client-only>
+            <div v-if="isLoggedIn">
+              {{ $store.state.auth.user.name }}
+                <v-btn text @click="logout">로그아웃</v-btn>
+            </div>
+            <v-btn v-else text to="/login">로그인</v-btn>
+          </client-only>
 
-            </v-row>
-
-          </v-col>
-
-          <v-col cols="4" align="center">
-
-          </v-col>
-
-          <v-col cols="4">
-            <v-row no-gutters align="center" justify="end">
-              <div v-if="isLoggedIn">
-                {{ $store.state.auth.user.name }}
-                 <v-btn text @click="logout">로그아웃</v-btn>
-              </div>
-              <v-btn v-else text to="/login">로그인</v-btn>
-            </v-row>
-          </v-col>
         </v-row>
       </v-container>
 
@@ -51,8 +40,6 @@
         <vue-snotify></vue-snotify>
         <Nuxt :style="`max-height: calc(100vh - ${60}px); overflow-y: auto; height: calc(100vh - ${60}px);`" />
       </v-container>
-
-
     </v-main>
     <GoogleAd />
 
@@ -105,13 +92,7 @@ export default {
   },
 
   created() {
-    console.log(
-      `%c
-     Version ${packageJson.version}
-                                         
-    `,
-      "color:#1E88E590"
-    );
+   
   },
   mounted() {
       const token = localStorage.getItem('accessToken')

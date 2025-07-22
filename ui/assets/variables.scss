@@ -79,3 +79,11 @@ $alert-font-size: 14px;
 $alert-icon-size: 20px;
 
 $data-table-dense-header-height: 36px;
+
+$grid-breakpoints: (
+    'xs': 0,
+    'sm': 600px,
+    'md': 960px,
+    'lg': 1280px - 16px,
+    'xl': 1280px - 16px
+  );
